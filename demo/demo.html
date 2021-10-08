@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>This is a demo html file to embed bokeh application</title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+  <h1> By understanding the below application you will gain a lot of understanding </h1>
+  <p> You can add what ever you want here like any other normal html page </p>
+  <script id="1001">
+  var xhr = new XMLHttpRequest()
+  xhr.responseType = 'blob';
+  xhr.open('GET', "http://localhost:5006/demo_app/autoload.js?bokeh-autoload-element=1001&bokeh-app-path=/demo_app&bokeh-absolute-url=http://localhost:5006/demo_app", true);
+  
+  xhr.onload = function (event) {
+    var script = document.createElement('script'),
+    src = URL.createObjectURL(event.target.response);
+    script.src = src;
+    document.body.appendChild(script);
+  };
+xhr.send();
+</script>
+  <p> I hope you learnt how to embed the application! </p>
+  </body>
+</html>
